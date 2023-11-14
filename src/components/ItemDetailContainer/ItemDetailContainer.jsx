@@ -16,7 +16,7 @@ export const ItemDetailContainer = () => {
     }, [product])
 
     return (
-        <div className=" my-10 p-4 border-solid border-2 w-80 h-96">
+        <div className=" my-10 p-4 border-solid border-orange-500 border-2 rounded-md shadow-md shadow-orange-500 w-80 h-96">
             { product && <ItemDetail {...product} /> }
         </div>
     )
