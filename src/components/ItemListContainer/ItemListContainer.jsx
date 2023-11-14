@@ -31,7 +31,6 @@ export const ItemListContainer = ({greeting}) => {
         <>
         <div className=" text-gray-400"> {greeting} </div>
         { isLoading ? <h2>Cargando productos ..</h2> : <ItemList products={products} />}
-        {/* <Count /> */}
         </>
     )
 }

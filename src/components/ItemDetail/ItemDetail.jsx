@@ -1,9 +1,8 @@
-import { useEffect } from "react";
 import { Count } from "../Count/Count"
 import { Button } from "../Button/Button";
 import { Link } from "react-router-dom"
 
-export const ItemDetail = ( { name, description, category, price, stock} ) => {
+export const ItemDetail = ( { name, description, price, stock} ) => {
 
     return (
         <>
@@ -18,7 +17,7 @@ export const ItemDetail = ( { name, description, category, price, stock} ) => {
                     <p>Stock: {stock}</p>
                 </div>
                 <div className=" border-2">
-                    <Count max={stock} />
+                    <Count stock={stock} />
                 </div>
             </div>
             <div className=" flex justify-center h-28 items-center">
