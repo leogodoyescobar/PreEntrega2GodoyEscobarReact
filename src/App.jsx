@@ -8,7 +8,7 @@ export const App = () => {
         <NavBar/>
         <Routes>
           <Route path="/" element={<ItemListContainer greeting={"Bienvenidos a Tales Petshop"} />} />
-          <Route path="/category/:category" element={<ItemListContainer greeting={"Bienvenidos a Tales Petshop"} />} />
+          <Route path="/category/:category" element={<ItemListContainer/>} />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/Cart" element={ <Cart/>} />
         </Routes>

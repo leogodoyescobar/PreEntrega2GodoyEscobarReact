@@ -8,7 +8,7 @@ export const NavBar = () => {
         <>
             <div className=" flex justify-around items-center w-screen gap-40 h-24 text-zinc-400 bg-slate-900">
                 <div className=" flex items-center">
-                    <Link to="/">
+                    <Link to={"/"}>
                         <img src="/img/logo.webp" alt="Logo" className="  w-24 h-24 " />
                     </Link>
                     <Link to={"/"}>
