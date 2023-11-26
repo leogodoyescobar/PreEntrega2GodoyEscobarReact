@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom"
 import { Button } from "../Button/Button"
+import React from 'react';
 
 
 export const Item = ( { img, name, description, id } ) => {
+    
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
 
     return (
         <>
@@ -17,7 +25,7 @@ export const Item = ( { img, name, description, id } ) => {
                     <span className=" font-bold">Descripcion: </span> {description} 
                 </p>
                 <Link to={`/Item/${id}`}>
-                    <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950" text="Detalles"/>
+                    <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950" text="Detalles" functionClick={scrollToTop} />
                 </Link>
             </div>
         </>
