@@ -29,7 +29,7 @@ export const ItemListContainer = ({greeting}) => {
         
     return (
         <>
-        <div className=" text-gray-400 pt-5"> {greeting} </div>
+        <div className=" text-gray-400 pt-5 "> {greeting} </div>
         { isLoading ? <h2>Cargando productos ..</h2> : <ItemList products={products} />}
         </>
     )

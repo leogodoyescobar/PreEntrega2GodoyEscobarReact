@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 export const App = () => {
   return (
     <BrowserRouter>
-      <div className=" flex flex-col items-center bg-slate-800 h-screen">
+      <div className=" flex flex-col items-center bg-slate-800 bg-blend-screen ">
         <NavBar/>
         <Routes>
           <Route path="/" element={<ItemListContainer greeting={"Bienvenidos a Tales Petshop"} />} />

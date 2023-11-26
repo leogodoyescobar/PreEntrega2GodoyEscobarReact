@@ -2,11 +2,14 @@ import { Link } from "react-router-dom"
 import { Button } from "../Button/Button"
 
 
-export const Item = ( { name, description, id } ) => {
+export const Item = ( { img, name, description, id } ) => {
 
     return (
         <>
-            <div className=" grid grid-flow-row justify-items-center items-center border-solid  shadow-md shadow-orange-500 m-2 p-2 h-60 w-52 text-zinc-400 ">
+            <div className=" grid grid-flow-row justify-items-center items-center border-solid  shadow-md shadow-orange-500 m-2 p-2 h-80 w-72 text-zinc-400 ">
+                <p>
+                    <img className=" h-40 w-40" src={img}></img>
+                </p>
                 <p>
                     <span className=" font-bold">Nombre: </span>{name} 
                 </p>

@@ -2,12 +2,12 @@ import { Count } from "../Count/Count"
 import { Button } from "../Button/Button";
 import { Link } from "react-router-dom"
 
-export const ItemDetail = ( { name, description, price, stock} ) => {
+export const ItemDetail = ( { img, name, description, price, stock} ) => {
 
     return (
         <>
-            <div className=" text-center p-2">
-                <p>imagen</p>
+            <div className=" flex justify-center p-2">
+                <img className=" h-50 w-50" src={img}></img>
             </div>
             <div>
                 <div className=" text-zinc-400 text-left py-5 h-40 ">
@@ -24,7 +24,7 @@ export const ItemDetail = ( { name, description, price, stock} ) => {
                         <span className=" font-bold underline">Stock:</span> {stock}
                     </p>
                 </div>
-                <div className=" border-2 border-zinc-400 text-orange-500">
+                <div className=" flex justify-center border-2 border-zinc-400 text-orange-500">
                     <Count stock={stock} />
                 </div>
             </div>
