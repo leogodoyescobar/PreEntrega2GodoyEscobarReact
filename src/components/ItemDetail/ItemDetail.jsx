@@ -1,8 +1,12 @@
 import { Count } from "../Count/Count"
 import { Button } from "../Button/Button";
 import { Link } from "react-router-dom"
+import { CartContext } from "../../context/CartContext";
+import { Cart } from "../Cart/Cart";
 
 export const ItemDetail = ( { img, name, description, price, stock} ) => {
+
+    // const {cart} = useContext(CartContext);
 
     return (
         <>
@@ -30,8 +34,9 @@ export const ItemDetail = ( { img, name, description, price, stock} ) => {
             </div>
             <div className=" flex justify-center h-28 items-center">
                 <Link to="/">
-                    <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950" text="Volver"/>
+                    <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 mx-5 " text="Volver"/>
                 </Link>
+                <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 mx-5" text="Comprar" />
             </div>
             
         </>

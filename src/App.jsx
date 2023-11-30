@@ -1,8 +1,10 @@
 import { Cart, ItemDetailContainer, ItemListContainer, NavBar } from "./components";
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { CartContextProvider } from "./context/CartContext";
 
 export const App = () => {
   return (
+    <>
     <BrowserRouter>
       <div className=" flex flex-col items-center bg-slate-800 bg-blend-screen ">
         <NavBar/>
@@ -14,5 +16,9 @@ export const App = () => {
         </Routes>
       </div>
     </BrowserRouter>
+    <CartContextProvider>
+      {/* <Cart/> */}
+    </CartContextProvider>
+    </>
   )
 }

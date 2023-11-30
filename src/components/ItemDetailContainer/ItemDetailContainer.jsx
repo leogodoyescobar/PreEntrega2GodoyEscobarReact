@@ -19,7 +19,6 @@ export const ItemDetailContainer = () => {
         <div className=" h-screen m-10">
             <div className=" my-10 p-4 border-solid border-orange-500 border-2 rounded-md shadow-md shadow-orange-500 w-96 h-120">
                 { product && <ItemDetail {...product} /> }
-                {/* { product ? <h2>Cargando producto ..</h2> : <ItemDetail {...product} />} */}
             </div>
         </div>
     )
