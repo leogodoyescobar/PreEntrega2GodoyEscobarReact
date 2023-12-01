@@ -24,9 +24,12 @@ export const Item = ( { img, name, description, id } ) => {
                 <p>
                     <span className=" font-bold">Descripcion: </span> {description} 
                 </p>
-                <Link to={`/Item/${id}`}>
-                    <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950" text="Detalles" functionClick={scrollToTop} />
-                </Link>
+                <div className=" flex justify-center gap-4">
+                    <Link to={`/Item/${id}`}>
+                        <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950" text="Detalles" functionClick={scrollToTop} />
+                    </Link>
+                    <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 " text="Añadir" />
+                </div>
             </div>
         </>
     )
