@@ -3,7 +3,7 @@ import { Button } from "../Button/Button"
 import React from 'react';
 
 
-export const Item = ( { img, name, description, id } ) => {
+export const Item = ( { img, name, description, id, stock } ) => {
     
     const scrollToTop = () => {
         window.scrollTo({
@@ -23,6 +23,9 @@ export const Item = ( { img, name, description, id } ) => {
                 </p>
                 <p>
                     <span className=" font-bold">Descripcion: </span> {description} 
+                </p>
+                <p>
+                    <span className=" font-bold">stock: </span> {stock}
                 </p>
                 <div className=" flex justify-center gap-4">
                     <Link to={`/Item/${id}`}>
