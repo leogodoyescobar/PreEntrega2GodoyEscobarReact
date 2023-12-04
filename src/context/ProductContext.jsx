@@ -8,11 +8,13 @@ export const ProductContextProvider = ( { children }) => {
 
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [changes, setchanges] = useState(true);
+    const [changes, setChanges] = useState(true);
+    
     
     const getProducts = ( category ) => {
         const myProducts = category ? query(collection(db, "products"), where("category", "==", category)) : query(collection(db, "products"));
         setIsLoading(true);
+        // setChanges(!changes);
         getDocs(myProducts)
             .then( (resp) => {
                 const myProductsList = resp.docs.map((doc) => ({ id: doc.id, ...doc.data()}));
@@ -22,7 +24,7 @@ export const ProductContextProvider = ( { children }) => {
     };
 
     useEffect(() => {
-        getProducts();
+        getProducts()
     }, [changes]);
 
 

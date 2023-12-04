@@ -5,6 +5,7 @@ import { ItemDetail } from "../ItemDetail/ItemDetail";
 
 
 export const ItemDetailContainer = () => {
+    
     const [product, setProduct] = useState(null);
 
     const {id} = useParams();

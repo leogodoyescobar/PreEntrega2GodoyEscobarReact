@@ -1,18 +1,15 @@
 import { useState } from "react";
 
-export const useCount = ({ initial = 0 }) => {
+export const useCount = ({ initial = 1 }) => {
     const [count, setCount] = useState(initial);
-
+        
     const increment = () => {
-        // if(count > stock) {
-        //     return setCount(count)
-        // }
         setCount(count + 1);
     }
 
     const decrement = () => { 
-        if(count === 0) {
-            return setCount(0);
+        if(count === 1) {
+            return setCount(1);
         }
             setCount(count - 1);
     }

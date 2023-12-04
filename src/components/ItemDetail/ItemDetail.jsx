@@ -3,10 +3,12 @@ import { Button } from "../Button/Button";
 import { Link } from "react-router-dom"
 import { CartContext } from "../../context/CartContext";
 import { Cart } from "../Cart/Cart";
+import { useContext } from "react";
+import { count } from "firebase/firestore";
 
 export const ItemDetail = ( { img, name, description, price, stock} ) => {
 
-    // const {cart} = useContext(CartContext);
+    const { AddToCart} = useContext(CartContext);
 
     return (
         <>
@@ -36,7 +38,7 @@ export const ItemDetail = ( { img, name, description, price, stock} ) => {
                 <Link to="/">
                     <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 mx-5 " text="Volver"/>
                 </Link>
-                <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 mx-5" text="Comprar" />
+                <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 mx-5" text="Comprar" onClick={() => AddToCart( {id, name, price}, count)} />
             </div>
             
         </>

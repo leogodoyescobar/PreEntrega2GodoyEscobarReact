@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom"
 import { Button } from "../Button/Button"
 import { CartWidget } from "../CartWidget/CartWidget"
+import { useContext } from "react"
+import { ProductContext } from "../../context/ProductContext"
 
 
 export const NavBar = () => {
+    const { setChanges, changes, getProducts} = useContext(ProductContext)
     return (
         <>
             <div className=" flex justify-around items-center w-screen gap-40 h-24 text-zinc-400 bg-slate-900">
@@ -14,7 +17,7 @@ export const NavBar = () => {
                     <Link to={"/"}>
                         <Button text="Inicio"/>
                     </Link>
-                    <Link to={"/category/perro"} >
+                    <Link to={"/category/perro"}>
                         <Button text="Perros"/>
                     </Link>
                     <Link to={"/category/gato"}>
