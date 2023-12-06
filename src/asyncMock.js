@@ -1,3 +1,5 @@
+import { doc } from "firebase/firestore";
+
 const products = [
     { id: "1", name: "Dog Chow perro adulto", img:"/img/dogchowadultomg21.webp", description: "Alimento balanceado para perro", category:"perro", price: 2300 , stock: 6 },
     { id: "2", name: "Dog Chow perro cachorro", img:"/img/dogchowcachorromg15.webp", description: "Alimento balanceado para perro", category:"perro", price: 2400 , stock: 7 },
@@ -26,16 +28,17 @@ export const getProducts = () => {
     });
 };
 
-export const getProduct = ( id ) => {
-    return new Promise((resolve, reject) => {    
-        const product = products.find( product => product.id === id); 
-        setTimeout( () => { 
-            if(!product) {
-                reject("No se encontró el producto solicitado")
-            } else {
-                resolve(product);
-            }
-        }, 1000 )
-    });
-};
+
+// export const getProduct = ( id ) => {
+//     return new Promise((resolve, reject) => {    
+//         const product = products.find( product => product.id === id); 
+//         setTimeout( () => { 
+//             if(!product) {
+//                 reject("No se encontró el producto solicitado")
+//             } else {
+//                 resolve(product);
+//             }
+//         }, 1000 )
+//     });
+// };
 

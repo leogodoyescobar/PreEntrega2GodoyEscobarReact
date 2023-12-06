@@ -1,5 +1,5 @@
 import {createContext, useEffect, useState} from "react";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, doc, getDocs, query, where } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 
 export const ProductContext = createContext(null);
@@ -14,7 +14,6 @@ export const ProductContextProvider = ( { children }) => {
     const getProducts = ( category ) => {
         const myProducts = category ? query(collection(db, "products"), where("category", "==", category)) : query(collection(db, "products"));
         setIsLoading(true);
-        // setChanges(!changes);
         getDocs(myProducts)
             .then( (resp) => {
                 const myProductsList = resp.docs.map((doc) => ({ id: doc.id, ...doc.data()}));
@@ -22,6 +21,10 @@ export const ProductContextProvider = ( { children }) => {
                 setIsLoading(false);
             });
     };
+
+    // const getProductById = (id) => {
+    //     return products.find((product) => product.id === id);
+    // };
 
     useEffect(() => {
         getProducts()
@@ -31,6 +34,7 @@ export const ProductContextProvider = ( { children }) => {
     const contextValue = {
         products,
         isLoading,
+        // getProductById,
     };
 
     return <ProductContext.Provider value={contextValue}> {children} </ProductContext.Provider>

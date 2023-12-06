@@ -43,9 +43,15 @@ export const CartContextProvider = ({children}) => {
         setTotalProducts(items);
     }
 
+    const clearCart = () => setCart([]);
+    
     useEffect(() => {
         handleTotal() 
         handleTotalProducts()
+    }, [cart])
+
+    useEffect(() => {
+        console.log(cart);
     }, [cart])
 
     const contextValue = {
@@ -54,6 +60,8 @@ export const CartContextProvider = ({children}) => {
         total,
         totalProducts,
         removeProduct,
+        clearCart,
+        setCart,
 
     };
 

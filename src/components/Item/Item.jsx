@@ -3,7 +3,6 @@ import { Button } from "../Button/Button"
 import React, { useContext } from 'react';
 import { CartContext } from "../../context/CartContext";
 import { useCount } from "../../hooks";
-import { Count } from "../Count/Count";
 
 
 export const Item = ( { img, name, description, id, stock, price } ) => {
@@ -40,14 +39,12 @@ export const Item = ( { img, name, description, id, stock, price } ) => {
                     { count < stock ? <Button classname=" w-5 " text="+" functionClick={increment} /> : <Button classname=" w-5 " text="+" />}
                         <p> {count} </p>
                     <Button text="-" functionClick={decrement}>-</Button>
-                    {/* <Count stock={stock} /> */}
                 </div>
                 <div className=" flex justify-center gap-4">
                     <Link to={`/Item/${id}`}>
                         <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950" text="Detalles" functionClick={scrollToTop} />
                     </Link>
                     <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 " text="Añadir" functionClick={ () => AddToCart ({id, name, price}, count )} />
-                    {/* { count < stock ? <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 " text="Añadir" functionClick={ () => AddToCart ({id, name, price}, count )} /> : <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 " text="Stock maximo" />} */}
                 </div>
             </div>
         </>

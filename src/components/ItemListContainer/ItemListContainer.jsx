@@ -1,7 +1,6 @@
-// import {useState, useEffect} from "react";
 import { ItemList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext";
 
 export const ItemListContainer = ({greeting}) => {
@@ -18,7 +17,6 @@ export const ItemListContainer = ({greeting}) => {
         <>
         <div className=" text-gray-400 pt-5 "> {greeting} </div>
         { isLoading ? <h2>Cargando productos ..</h2> : <ItemList products={filterProductsCategory(products, category)} />}
-        {/* { isLoading ? <h2>Cargando productos ..</h2> : <ItemList products={products} />} */}
         </>
     );
 };
