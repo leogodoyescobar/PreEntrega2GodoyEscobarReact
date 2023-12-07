@@ -2,13 +2,14 @@ import { Count } from "../Count/Count"
 import { Button } from "../Button/Button";
 import { Link } from "react-router-dom"
 import { CartContext } from "../../context/CartContext";
-import { Cart } from "../Cart/Cart";
 import { useContext } from "react";
 import { count } from "firebase/firestore";
+import { useCount } from "../../hooks";
 
-export const ItemDetail = ( { img, name, description, price, stock} ) => {
+export const ItemDetail = ( { id, img, name, description, price, stock} ) => {
 
     const { AddToCart} = useContext(CartContext);
+    const {increment, decrement, count} = useCount(0, stock);
 
     return (
         <>
@@ -30,15 +31,20 @@ export const ItemDetail = ( { img, name, description, price, stock} ) => {
                         <span className=" font-bold underline">Stock:</span> {stock}
                     </p>
                 </div>
-                <div className=" flex justify-center border-2 border-zinc-400 text-orange-500">
+                {/* <div className=" flex justify-center border-2 border-zinc-400 text-orange-500">
                     <Count stock={stock} />
+                </div> */}
+                <div className=" flex justify-center border-2 border-zinc-400 text-orange-500">
+                    { count < stock ? <Button classname=" w-5 " text="+" functionClick={increment} /> : <Button classname=" w-5 " text="+" />}
+                        <p> {count} </p>
+                    <Button text="-" functionClick={decrement}>-</Button>
                 </div>
             </div>
             <div className=" flex justify-center h-28 items-center">
                 <Link to="/">
                     <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 mx-5 " text="Volver"/>
                 </Link>
-                <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 mx-5" text="Comprar" onClick={() => AddToCart( {id, name, price}, count)} />
+                <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 mx-5" text="Añadir" functionClick={() => AddToCart( {id, name, price}, count)} />
             </div>
             
         </>
