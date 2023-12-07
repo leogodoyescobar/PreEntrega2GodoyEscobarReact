@@ -1,8 +1,6 @@
 import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import { Button } from "../Button/Button";
-import { Count } from "../Count/Count";
-import { Link } from "react-router-dom";
 import { Checkout } from "../Checkout/Checkout";
 import { useCount } from "../../hooks";
 

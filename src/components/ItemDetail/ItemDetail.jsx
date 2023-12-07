@@ -1,9 +1,7 @@
-import { Count } from "../Count/Count"
 import { Button } from "../Button/Button";
 import { Link } from "react-router-dom"
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
-import { count } from "firebase/firestore";
 import { useCount } from "../../hooks";
 
 export const ItemDetail = ( { id, img, name, description, price, stock} ) => {
@@ -31,9 +29,6 @@ export const ItemDetail = ( { id, img, name, description, price, stock} ) => {
                         <span className=" font-bold underline">Stock:</span> {stock}
                     </p>
                 </div>
-                {/* <div className=" flex justify-center border-2 border-zinc-400 text-orange-500">
-                    <Count stock={stock} />
-                </div> */}
                 <div className=" flex justify-center border-2 border-zinc-400 text-orange-500">
                     { count < stock ? <Button classname=" w-5 " text="+" functionClick={increment} /> : <Button classname=" w-5 " text="+" />}
                         <p> {count} </p>

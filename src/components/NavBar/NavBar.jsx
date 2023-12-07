@@ -1,12 +1,8 @@
 import { Link } from "react-router-dom"
 import { Button } from "../Button/Button"
 import { CartWidget } from "../CartWidget/CartWidget"
-import { useContext } from "react"
-import { ProductContext } from "../../context/ProductContext"
-
 
 export const NavBar = () => {
-    const { setChanges, changes, getProducts} = useContext(ProductContext)
     return (
         <>
             <div className=" flex justify-around items-center w-screen gap-40 h-24 text-zinc-400 bg-slate-900">

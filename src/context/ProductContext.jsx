@@ -1,5 +1,5 @@
 import {createContext, useEffect, useState} from "react";
-import { collection, doc, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 
 export const ProductContext = createContext(null);
@@ -21,10 +21,6 @@ export const ProductContextProvider = ( { children }) => {
                 setIsLoading(false);
             });
     };
-
-    // const getProductById = (id) => {
-    //     return products.find((product) => product.id === id);
-    // };
 
     useEffect(() => {
         getProducts()
