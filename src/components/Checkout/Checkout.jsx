@@ -10,24 +10,33 @@ export const Checkout = () => {
     const [surname, setSurname] = useState("");
     const [email, setEmail] = useState("");
     const [email2, setEmail2] = useState("");
+    const [orderId, setOrderId] = useState(null);
 
-    const handleOrder = (e) => { 
+    const handleOrder = async (e) => { 
         e.preventDefault()
-        const neworder = {
-            name,
-            surname,
-            items: cart,
-            total,
-            email,
-        }
 
-        addDoc(collection(db, "orders"), neworder );
-        setName("");
-        setSurname("");
-        setEmail("");
-        setEmail2("");
-        setCart([]);
-    }
+        try{
+            const neworder = {
+                name,
+                surname,
+                items: cart,
+                total,
+                email,
+            }
+    
+            const docRef = await addDoc(collection(db, "orders"), neworder );
+            setOrderId(docRef.id);
+            console.log(orderId);
+            setName("");
+            setSurname("");
+            setEmail("");
+            setEmail2("");
+            setCart([]);
+
+        } catch (error) {
+            console.error("Error al agregar la orden a Firebase", error);
+        }
+    };
 
     const buttonClassName = 'border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 mx-5 mt-4 rounded-lg';
 
@@ -51,6 +60,11 @@ export const Checkout = () => {
             <p>Ingrese sus datos para finalizar la compra</p>
             </div>
             )}
+            <div>
+                {orderId && (
+                    <p>Orden de compra: {orderId}</p>
+                )}
+            </div>
         </div>
     )
 }

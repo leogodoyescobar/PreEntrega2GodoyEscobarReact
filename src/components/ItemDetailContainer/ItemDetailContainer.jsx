@@ -7,11 +7,12 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../config/firebaseConfig";
 
 
-export const ItemDetailContainer = ({productId}) => {
+export const ItemDetailContainer = () => {
 
     // const { getProductById } = useContext(ProductContext);
     const [product, setProduct] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const {productId} = useParams();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -36,6 +37,7 @@ export const ItemDetailContainer = ({productId}) => {
 
     getProduct();
   }, [productId]);
+
 
   if (isLoading) {
     return <p>Cargando...</p>;

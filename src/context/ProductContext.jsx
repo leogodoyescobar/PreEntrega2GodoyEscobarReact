@@ -34,7 +34,7 @@ export const ProductContextProvider = ( { children }) => {
     const contextValue = {
         products,
         isLoading,
-        // getProductById,
+        getProducts,
     };
 
     return <ProductContext.Provider value={contextValue}> {children} </ProductContext.Provider>
