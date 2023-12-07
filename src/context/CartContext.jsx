@@ -50,9 +50,9 @@ export const CartContextProvider = ({children}) => {
         handleTotalProducts()
     }, [cart])
 
-    useEffect(() => {
-        console.log(cart);
-    }, [cart])
+    // useEffect(() => {
+    //     console.log(cart);
+    // }, [cart])
 
     const contextValue = {
         cart,

@@ -2,6 +2,8 @@ import { addDoc, collection } from "firebase/firestore";
 import { useContext, useState } from "react";
 import { db } from "../../config/firebaseConfig";
 import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
+import { Button } from "../Button/Button";
 
 export const Checkout = () => {
 
@@ -15,6 +17,11 @@ export const Checkout = () => {
     const handleOrder = async (e) => { 
         e.preventDefault()
 
+        if (email !== email2) {
+            alert("Verifique que el email ingresado sea correcto");
+            return;
+        }
+
         try{
             const neworder = {
                 name,
@@ -26,7 +33,6 @@ export const Checkout = () => {
     
             const docRef = await addDoc(collection(db, "orders"), neworder );
             setOrderId(docRef.id);
-            console.log(orderId);
             setName("");
             setSurname("");
             setEmail("");
@@ -41,9 +47,11 @@ export const Checkout = () => {
     const buttonClassName = 'border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 mx-5 mt-4 rounded-lg';
 
     return (
-        <div className=" flex h-screen justify-center ">
+        <div className=" flex h-screen flex-col items-center">
             {cart.length === 0 ? (
-                    <p className=" mt-2 text-gray-400">Añada productos</p>
+                    <Link to="/">
+                        <Button color=" border-solid bg-orange-500/75 hover:bg-orange-500 text-gray-950 mx-5 " text="Volver"/>
+                    </Link>
                 ) : (
             <div>
             <form className=" flex flex-col m-5 w-60" onSubmit={handleOrder} >
@@ -60,9 +68,9 @@ export const Checkout = () => {
             <p>Ingrese sus datos para finalizar la compra</p>
             </div>
             )}
-            <div>
+            <div className=" text-gray-400">
                 {orderId && (
-                    <p>Orden de compra: {orderId}</p>
+                    <p>Gracias por su compra recibira un email con los pasos a seguir. Orden nº: {orderId}</p>
                 )}
             </div>
         </div>
