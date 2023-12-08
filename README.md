@@ -1,8 +1,23 @@
-# React + Vite
+# Proyecto final de React Js
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripcion del proyecto
+Este proyecto se trata de un e-commerce de venta de alimento balanceado y accesorios para mascotas.
 
-Currently, two official plugins are available:
+## Tecnologias
+Tecnologias utilizadas para realizar el proyecto:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React Js
+- Vite
+- React Router Dom
+- Tailwind
+- Firebase
+
+## Instalacion
+
+- git clone https://github.com/leogodoyescobar/ProyectoFinalGodoyEscobarReact
+- npm install
+- npm run dev
+
+## Autor
+
+Linkedin: https://www.linkedin.com/in/leonel-godoy-7936aa262/
